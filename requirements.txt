@@ -1,2 +1,4 @@
 pyspellchecker
 nltk
+pymongo
+flask

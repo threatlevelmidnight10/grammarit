@@ -1,7 +1,7 @@
 import re
 import json
 import os
-
+import nltk
 
 def tokenize(text):
     tokens =  [word.lower() for word in text.split()]
@@ -18,3 +18,4 @@ def get_algo_configuration():
     algo_config_file = configuration_data["algo_config"]
     algo_configuration = json.loads(open("grammarit/config/algo_config/{}".format(algo_config_file), "r").read())
     return algo_configuration
+
