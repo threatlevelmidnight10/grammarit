@@ -1,10 +1,12 @@
-from grammarit.utils.utils import tokenize
 import random
 import nltk
 import os
 
+from grammarit.utils.utils import tokenize
+import config
 
-FILE = open('/home/leo_fcb10/tests/default_corpus.txt',"r")
+FILE_PATH = config.get("default_corpus")
+FILE = open(FILE_PATH, "r")
 class MarkovAutoComplete:
     def __init__(self, text):
         self.tree = dict()
