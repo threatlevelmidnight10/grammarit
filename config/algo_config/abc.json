@@ -1,0 +1,8 @@
+{
+"name":"abc",
+"api":"get_result",
+"api_params":{
+    "p1":"",
+    "p2":""
+}
+}
