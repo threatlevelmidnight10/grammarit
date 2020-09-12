@@ -41,10 +41,10 @@ class MarkovAutoComplete:
                 self.new_tree[k].sort()
 
     # autocomplete function
-    def autocomplete(self, input, length=3):
+    def autocomplete(self, user_input, length=3):
         #training first
-        # self.train()
-        last_word = input.split()[-1]
+        self.train(FILE.read())
+        last_word = user_input.split()[-1]
         sentence = []
         for i in range(0,length):
             if last_word in self.new_tree:
@@ -54,7 +54,7 @@ class MarkovAutoComplete:
             else:
                 last_word = sentence[-1]
 
-        return {input : ' '.join(sentence)}
+        return {user_input : ' '.join(sentence)}
 
     def train(self, text):
         chain  = self._init_chain(text)
