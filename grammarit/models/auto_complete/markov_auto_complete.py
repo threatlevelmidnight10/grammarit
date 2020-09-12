@@ -3,7 +3,7 @@ import nltk
 import os
 
 from grammarit.utils.utils import tokenize
-from grammarit import config
+import config
 
 FILE_PATH = config.get("default_corpus")
 FILE = open(FILE_PATH, "r")
