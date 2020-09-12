@@ -1,10 +1,7 @@
 from grammarit.utils.utils import tokenize
 import random
 import nltk
-import os
 
-
-FILE = open('/home/leo_fcb10/tests/default_corpus.txt',"r")
 class MarkovAutoComplete:
     def __init__(self, text):
         self.tree = dict()
@@ -42,17 +39,18 @@ class MarkovAutoComplete:
     # autocomplete function
     def autocomplete(self, input, length=3):
         #training first
-        self.train()
+        # self.train()
         last_word = input.split()[-1]
-        sentence = ''
-        for i in range(0,3):
+        sentence = []
+        for i in range(0,length):
             if last_word in self.new_tree:
                 for word in self.new_tree[last_word]:
-                    sentence += word[0]
+                    sentence.append(word[0])
                     last_word = word[0]
             else:
-                last_word = input.split()[-1-i]
-        return {input : sentence}
+                last_word = sentence[-1]
+
+        return {input : ' '.join(sentence)}
 
     def train(self, text):
         chain  = self._init_chain(text)
