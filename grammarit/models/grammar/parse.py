@@ -2,7 +2,7 @@ from spellchecker import SpellChecker
 
 
 class Parser():
-	"""Naive spell cheker using spellchecker package in python
+	"""Naive spell checker using spellchecker package in python
 	"""
 	def __init__(self, sentence):
 		self.spellchecker = SpellChecker('en')
