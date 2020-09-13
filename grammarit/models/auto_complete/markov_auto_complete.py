@@ -7,7 +7,7 @@ import config
 FILE_PATH = config.get("default_corpus")
 FILE = open(FILE_PATH, "r")
 class MarkovAutoComplete:
-    def __init__(self, text):
+    def __init__(self):
         self.tree = dict()
         self.new_tree = dict()
         self.tokens = []
@@ -46,16 +46,19 @@ class MarkovAutoComplete:
         self.train(FILE.read())
         last_word = user_input.split()[-1]
         sentence = []
+        print(self.new_tree)
         for i in range(0,length):
             if last_word in self.new_tree:
                 for word in self.new_tree[last_word]:
                     sentence.append(word[0])
                     last_word = word[0]
-            else:
-                last_word = sentence[-1]
 
         return {user_input : ' '.join(sentence)}
 
     def train(self, text):
         chain  = self._init_chain(text)
         self.randomize_weights()
+
+def suggest_auto_complete(user_input):
+    markov = MarkovAutoComplete()
+    return markov.autocomplete(user_input)
